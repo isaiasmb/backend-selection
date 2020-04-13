@@ -7,7 +7,8 @@ export interface Token extends mongoose.Document {
 
 const tokenSchema = new mongoose.Schema({
   text: {
-    type: String
+    type: String,
+    required: true
   },
   tokenSelected: {
     type: Number
