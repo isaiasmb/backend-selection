@@ -1,5 +1,10 @@
 import * as mongoose from 'mongoose'
 
+export interface Token extends mongoose.Document {
+  text: string,
+  tokenSelected: string
+}
+
 const tokenSchema = new mongoose.Schema({
   text: {
     type: String
@@ -9,4 +14,4 @@ const tokenSchema = new mongoose.Schema({
   }
 })
 
-export const Token = mongoose.model('Token', tokenSchema)
+export const Token = mongoose.model<Token>('Token', tokenSchema)
