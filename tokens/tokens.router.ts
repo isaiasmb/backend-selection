@@ -5,30 +5,16 @@ import { Token } from './tokens.model'
 class TokensRouter extends Router {
   applyRoutes(application: restify.Server) {
     application.get('/tokens', (req, resp, next) => {
-      Token.find().then(tokens => {
-        resp.json(tokens)
-        return next()
-      })
+      Token.find().then(this.render(resp, next))
     })
 
     application.get('/tokens/:id', (req, resp, next) => {
-      Token.findById(req.params.id).then(token => {
-        if (token) {
-          resp.json(token)
-          return next()
-        }
-
-        resp.send(404)
-        return next()
-      })
+      Token.findById(req.params.id).then(this.render(resp, next))
     })
 
     application.post('/tokens', (req, resp, next) => {
       let token = new Token(req.body)
-      token.save().then(token => {
-        resp.json(token)
-        return next()
-      })
+      token.save().then(this.render(resp, next))
     })
 
     application.put('/tokens/:id', (req, resp, next) => {
@@ -40,22 +26,13 @@ class TokensRouter extends Router {
           } else {
             resp.send(404)
           }
-        }).then(token => {
-          resp.json(token)
-          return next()
-        })
+        }).then(this.render(resp, next))
     })
 
     application.patch('/tokens/:id', (req, resp, next) => {
-      const options = { new : true }
-      Token.findByIdAndUpdate(req.params.id, req.body, options).then(token => {
-       if (token) {
-         resp.json(token)
-         return next()
-       }
-       resp.send(404)
-       return next()
-      })
+      const options = { new: true }
+      Token.findByIdAndUpdate(req.params.id, req.body, options)
+        .then(this.render(resp, next))
     })
 
     application.del('/tokens/:id', (req, resp, next) => {
