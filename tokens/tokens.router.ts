@@ -27,11 +27,10 @@ class TokensRouter extends Router {
     application.put('/tokens/:id', [this.validateId, (req, resp, next) => {
       const options = { runValidator: true, overwrite: true }
       Token.update({ _id: req.params.id }, req.body, options)
-        .exec().then(result => {
+        .exec()
+        .then(result => {
           if (result.n) {
             return Token.findById(req.params.id)
-          } else {
-            throw new NotFoundError('Token not found.')
           }
         })
         .then(this.render(resp, next))
@@ -49,8 +48,6 @@ class TokensRouter extends Router {
       Token.remove({ _id: req.params.id }).exec().then((cmdResult: any) => {
         if (cmdResult.result.n) {
           resp.send(204)
-        } else {
-          throw new NotFoundError('Token not found.')
         }
         return next()
       }).catch(next)
