@@ -8,7 +8,7 @@
     "ts:build": "tsc",
     "serve": "nodemon dist/main.js",
     "build": "npm run ts:build",
-    "prod:serve": "node dist/main.js",
+    "prod:serve": "pm2 start",
     "start": "npm run build && npm run prod:serve",
     "test": "jest"
   },
@@ -24,14 +24,15 @@
   },
   "homepage": "https://github.com/isaiasmb/backend-selection#readme",
   "dependencies": {
-    "restify": "6.3.4",
     "@types/jest": "22.1.2",
     "@types/mongoose": "4.7.32",
     "@types/restify": "5.0.11",
     "@types/restify-errors": "4.3.2",
     "@types/supertest": "2.0.4",
-    "typescript": "^3.8.3",
-    "mongoose": "4.13.9"
+    "mongoose": "4.13.9",
+    "pm2": "^4.2.3",
+    "restify": "6.3.4",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "jest": "22.4.2",
