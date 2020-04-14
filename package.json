@@ -24,21 +24,21 @@
   },
   "homepage": "https://github.com/isaiasmb/backend-selection#readme",
   "dependencies": {
-    "restify": "6.3.4"
-  },
-  "devDependencies": {
+    "restify": "6.3.4",
     "@types/jest": "22.1.2",
     "@types/mongoose": "4.7.32",
     "@types/restify": "5.0.11",
     "@types/restify-errors": "4.3.2",
     "@types/supertest": "2.0.4",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
     "jest": "22.4.2",
     "mongoose": "4.13.9",
     "nodemon": "^2.0.3",
     "restify-errors": "5.0.0",
     "supertest": "3.0.0",
-    "ts-jest": "22.0.4",
-    "typescript": "^3.8.3"
+    "ts-jest": "22.0.4"
   },
   "jest": {
     "testEnvironment": "node",
