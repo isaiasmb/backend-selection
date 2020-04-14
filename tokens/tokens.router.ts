@@ -1,7 +1,6 @@
 import * as restify from 'restify'
 import { Router } from '../common/router'
 import { Token } from './tokens.model'
-import { NotFoundError } from 'restify-errors'
 
 class TokensRouter extends Router {
   applyRoutes(application: restify.Server) {
@@ -23,19 +22,6 @@ class TokensRouter extends Router {
         .then(this.render(resp, next))
         .catch(next)
     })
-
-    application.put('/tokens/:id', [this.validateId, (req, resp, next) => {
-      const options = { runValidator: true, overwrite: true }
-      Token.update({ _id: req.params.id }, req.body, options)
-        .exec()
-        .then(result => {
-          if (result.n) {
-            return Token.findById(req.params.id)
-          }
-        })
-        .then(this.render(resp, next))
-        .catch(next)
-    }])
 
     application.patch('/tokens/:id', [this.validateId, (req, resp, next) => {
       const options = { runValidator: true, new: true }

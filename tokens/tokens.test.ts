@@ -67,37 +67,6 @@ test('post /tokens', () => {
     }).catch(fail)
 })
 
-test('put /tokens/:id', () => {
-  return request(address)
-    .post('/tokens')
-    .send({
-      text: 'A simple Text 3'
-    })
-    .then(resp => request(address)
-      .put(`/tokens/${resp.body._id}`)
-      .send({
-        text: 'A simple Text 4',
-        tokenSelected: 3
-      }))
-    .then(resp => {
-      expect(resp.status).toBe(200)
-      expect(resp.body._id).toBeDefined()
-      expect(resp.body.text).toBe('A simple Text 4')
-      expect(resp.body.tokenSelected).toBe(3)
-    }).catch(fail)
-})
-
-test('put /tokens/invalidId - not fount', () => {
-  return request(address)
-    .put('/tokens/invalidId')
-    .send({
-      tokenSelected: 3
-    })
-    .then(resp => {
-      expect(resp.status).toBe(404)
-    }).catch(fail)
-})
-
 test('patch /tokens/:id', () => {
   return request(address)
     .post('/tokens')
