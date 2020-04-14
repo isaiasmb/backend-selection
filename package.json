@@ -4,6 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ts:watch": "tsc -w",
+    "ts:build": "tsc",
+    "serve": "nodemon dist/main.js",
+    "build": "npm run ts:build",
+    "prod:serve": "node dist/main.js",
+    "start": "npm run build && npm run prod:serve",
     "test": "jest"
   },
   "repository": {
