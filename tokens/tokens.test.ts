@@ -35,7 +35,7 @@ test('get /tokens/:id', () => {
     .then(resp => request(address)
       .get(`/tokens/${resp.body._id}`)
       .send({
-        tokenSelected: 10
+        tokenSelecteds: [10]
       }))
     .then(resp => {
       expect(resp.status).toBe(200)
@@ -57,13 +57,13 @@ test('post /tokens', () => {
     .post('/tokens')
     .send({
       text: 'A simple Text 2',
-      tokenSelected: 5
+      tokenSelecteds: [5]
     })
     .then(resp => {
       expect(resp.status).toBe(200)
       expect(resp.body._id).toBeDefined()
       expect(resp.body.text).toBe('A simple Text 2')
-      expect(resp.body.tokenSelected).toBe(5)
+      expect(resp.body.tokenSelecteds).toEqual([5])
     }).catch(fail)
 })
 
@@ -76,13 +76,13 @@ test('patch /tokens/:id', () => {
     .then(resp => request(address)
       .patch(`/tokens/${resp.body._id}`)
       .send({
-        tokenSelected: 10
+        tokenSelecteds: [10]
       }))
     .then(resp => {
       expect(resp.status).toBe(200)
       expect(resp.body._id).toBeDefined()
       expect(resp.body.text).toBe('A simple Text 5')
-      expect(resp.body.tokenSelected).toBe(10)
+      expect(resp.body.tokenSelecteds).toEqual([10])
     }).catch(fail)
 })
 
@@ -104,7 +104,7 @@ test('del /tokens/invalidId - not fount', () => {
   return request(address)
     .del('/tokens/invalidId')
     .send({
-      tokenSelected: 3
+      tokenSelecteds: [3]
     })
     .then(resp => {
       expect(resp.status).toBe(404)

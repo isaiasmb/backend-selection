@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose'
 
 export interface Token extends mongoose.Document {
   text: string,
-  tokenSelected: string
+  tokenSelecteds: Array<Number>
 }
 
 const tokenSchema = new mongoose.Schema({
@@ -10,8 +10,8 @@ const tokenSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  tokenSelected: {
-    type: Number
+  tokenSelecteds: {
+    type: Array
   }
 })
 
