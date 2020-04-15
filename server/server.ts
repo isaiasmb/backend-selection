@@ -4,6 +4,7 @@ import { environment } from '../common/environment'
 import { Router } from '../common/router'
 import { mergePatchBodyParser } from './merge-patch.parser'
 import { handleError } from './error.handler'
+import * as corsMiddleware from 'restify-cors-middleware'
 
 export class Server {
 
@@ -24,6 +25,15 @@ export class Server {
           version: '1.0.0'
         })
 
+        const corsOptions: corsMiddleware.Options = {
+          origins: ['*'],
+          allowHeaders: [],
+          exposeHeaders: ['x-custom-header']
+        }
+        const cors: corsMiddleware.CorsMiddleware = corsMiddleware(corsOptions)
+
+        this.application.pre((<any>cors).preflight)
+        this.application.use((<any>cors).actual)
         this.application.use(restify.plugins.queryParser())
         this.application.use(restify.plugins.bodyParser())
         this.application.use(mergePatchBodyParser)

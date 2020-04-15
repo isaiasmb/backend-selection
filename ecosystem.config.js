@@ -10,10 +10,6 @@ module.exports = {
       SERVER_PORT: 5000,
       DB_URL: 'mongodb://localhost/bandyer',
       NODE_ENV: "development"
-    },
-    env_production: {
-      SERVER_PORT: 5001,
-      NODE_ENV: "production"
     }
   }]
 }
