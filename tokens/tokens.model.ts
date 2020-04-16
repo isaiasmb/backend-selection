@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose'
 
 export interface Token extends mongoose.Document {
   text: string,
-  tokenSelecteds: Array<Number>
+  tokenSelecteds: Array<Object>
 }
 
 const tokenSchema = new mongoose.Schema({
