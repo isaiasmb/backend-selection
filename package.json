@@ -27,6 +27,7 @@
   "dependencies": {
     "mongoose": "4.13.9",
     "restify": "6.3.4",
+    "restify-cors-middleware": "^1.1.1",
     "restify-errors": "5.0.0"
   },
   "devDependencies": {
@@ -38,7 +39,6 @@
     "@types/supertest": "2.0.4",
     "jest": "22.4.2",
     "nodemon": "^2.0.3",
-    "restify-cors-middleware": "^1.1.1",
     "rimraf": "^3.0.2",
     "supertest": "3.0.0",
     "ts-jest": "22.0.4",
