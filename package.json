@@ -8,8 +8,7 @@
     "ts:build": "tsc",
     "serve": "nodemon dist/main.js",
     "build": "npm run ts:build",
-    "prod:serve": "pm2 start",
-    "start": "npm run build && npm run prod:serve",
+    "start": "pm2 start",
     "test": "jest"
   },
   "repository": {
