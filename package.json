@@ -9,6 +9,10 @@
     "start": "node dist/main.js",
     "test": "jest"
   },
+  "engines": {
+    "node": "12.16.2",
+    "npm": "6.14.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/isaiasmb/backend-selection.git"
