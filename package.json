@@ -2,11 +2,10 @@
   "name": "backend-selection",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "ts:watch": "tsc -w",
     "build": "rimraf dist && tsc",
-    "start": "pm2 start",
+    "start": "node dist/main.js",
     "test": "jest"
   },
   "engines": {
