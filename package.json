@@ -6,7 +6,7 @@
   "scripts": {
     "ts:watch": "tsc -w",
     "build": "rimraf dist && tsc",
-    "start": "node dist/main.js",
+    "start": "pm2 start",
     "test": "jest"
   },
   "engines": {
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/isaiasmb/backend-selection#readme",
   "dependencies": {
     "mongoose": "4.13.9",
+    "pm2": "^4.4.0",
     "restify": "6.3.4",
     "restify-cors-middleware": "^1.1.1",
     "restify-errors": "5.0.0"
