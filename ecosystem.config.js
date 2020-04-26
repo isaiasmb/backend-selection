@@ -5,11 +5,6 @@ module.exports = {
     instances: 4,
     exec_mode: 'cluster',
     watch: true,
-    merge_logs: true,
-    env: {
-      PORT: 5000,
-      DB_URL: 'mongodb://localhost/bandyer',
-      NODE_ENV: 'development'
-    }
+    merge_logs: true
   }]
 }
